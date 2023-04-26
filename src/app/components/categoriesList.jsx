@@ -1,7 +1,8 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const GroupList = ({ items, valueProperty, contentProperty, onItemSelect, selectedItem }) => {
+const CategoriesList = ({ items, valueProperty, contentProperty, onItemSelect, selectedItem }) => {
   if (!Array.isArray(items)) {
     return (
       <ul className='list-group'>
@@ -33,16 +34,18 @@ const GroupList = ({ items, valueProperty, contentProperty, onItemSelect, select
     </ul>
   );
 };
-GroupList.defaultProps = {
+
+export default CategoriesList;
+
+CategoriesList.defaultProps = {
   valueProperty: '_id',
   contentProperty: 'name',
 };
-GroupList.propTypes = {
+
+CategoriesList.propTypes = {
   items: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
   valueProperty: PropTypes.string.isRequired,
   contentProperty: PropTypes.string.isRequired,
   onItemSelect: PropTypes.func,
   selectedItem: PropTypes.object,
 };
-
-export default GroupList;

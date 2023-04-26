@@ -1,7 +1,8 @@
-import users from './fake.api/user.api';
-import professions from './fake.api/professions.api';
+import cards from './fake.api/cards.api';
+import categories from './fake.api/categories';
+
 const API = {
-  users,
-  professions,
+  categories,
+  cards,
 };
 export default API;
