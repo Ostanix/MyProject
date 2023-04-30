@@ -19,7 +19,18 @@ const MainPage = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(name);
+
+    API.cards
+      .fetchAll()
+      .then((data) =>
+        data.map((item) =>
+          item.name.toLowerCase().includes(name.toLowerCase())
+            ? setCards(
+                data.filter((card) => card.name.toLowerCase().includes(name.toLocaleLowerCase())),
+              )
+            : data,
+        ),
+      );
   }; // searchBar
 
   const handleChange = (event) => {
@@ -29,12 +40,7 @@ const MainPage = () => {
   const pageSize = 4;
 
   useEffect(() => {
-    const fetchData = async () => {
-      const result = await API.cards.fetchAll();
-      setCards(result);
-    };
-
-    fetchData();
+    API.cards.fetchAll().then((data) => setCards(data));
   }, []);
 
   useEffect(() => {
@@ -70,6 +76,7 @@ const MainPage = () => {
   const clearFilter = () => {
     setSelectedCategory();
     setSortBy({ iter: null, order: null });
+    API.cards.fetchAll().then((data) => setCards(data));
   };
 
   return (

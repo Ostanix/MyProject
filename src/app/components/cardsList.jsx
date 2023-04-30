@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const CardsList = ({ ...card }) => {
   return (
@@ -17,9 +18,9 @@ const CardsList = ({ ...card }) => {
               <small className='text-muted'>Id товара: {card._id}</small>
             </p>
             <p>
-              <a href='#' className='btn btn-primary'>
+              <Link to={`/${card._id}`} className='btn btn-primary'>
                 Открыть карточку
-              </a>
+              </Link>
             </p>
           </div>
         </div>
@@ -32,5 +33,5 @@ export default CardsList;
 
 /*
 
-
+ <Link to={`/main/${card._id}`} className='btn btn-primary'>Открыть карточку</Link>
 */

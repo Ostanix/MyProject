@@ -1,7 +1,8 @@
-// import React from 'react';
+/* eslint-disable react/prop-types */
+import React from 'react';
 
-// const Login = () => {
-//   return <h1>Login</h1>;
-// };
+const Login = () => {
+  return <h1>Login</h1>;
+};
 
-// export default Login;
+export default Login;
