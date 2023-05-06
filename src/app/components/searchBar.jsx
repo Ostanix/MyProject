@@ -1,16 +1,11 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 
-const SearchBar = ({ onHandleChange, onHandleSubmit, name }) => {
+const SearchBar = ({ onHandleSearchName, name }) => {
   return (
-    <form onSubmit={onHandleSubmit} className='input-group mb-3'>
-      <div className='input-group-prepend'>
-        <button className='btn btn-outline-secondary' type='submit'>
-          Поиск
-        </button>
-      </div>
+    <form className='input-group mb-3'>
       <input
-        onChange={onHandleChange}
+        onChange={onHandleSearchName}
         value={name}
         className='form-control'
         placeholder='Введите название товара...'
