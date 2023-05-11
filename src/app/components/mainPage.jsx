@@ -46,13 +46,12 @@ const MainPage = () => {
 
   const handleSort = (item) => {
     setSortBy(item);
-    console.log(item);
   };
 
   useEffect(() => {
     if (cards) {
       const filteredCards = selectedCategory
-        ? cards.filter((card) => JSON.stringify(card.category) === JSON.stringify(selectedCategory))
+        ? cards.filter((card) => card.category === selectedCategory.name)
         : cards;
       const cardsCrop = paginate(filteredCards, currentPage, pageSize);
       if (cardsCrop.length === 0 && currentPage > 1) {
@@ -65,7 +64,7 @@ const MainPage = () => {
     const filteredCards = name
       ? cards.filter((card) => card.name.toLowerCase().indexOf(name.toLowerCase()) !== -1)
       : selectedCategory
-      ? cards.filter((card) => JSON.stringify(card.category) === JSON.stringify(selectedCategory))
+      ? cards.filter((card) => card.category === selectedCategory.name)
       : cards;
 
     const count = filteredCards.length;

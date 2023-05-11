@@ -4,13 +4,14 @@ import PropTypes from 'prop-types';
 
 function SortBar({ onSort, sortBy }) {
   const handleSort = () => {
-    if (sortBy.iter === null) {
+    if (sortBy.iter === '') {
       onSort({ iter: 'price', order: 'asc' });
     } else {
-      onSort((prevState) => ({
-        ...prevState,
-        order: prevState.order === 'asc' ? 'desc' : 'asc',
-      }));
+      const newSortState = {
+        iter: sortBy.iter,
+        order: sortBy.order === 'asc' ? 'desc' : 'asc',
+      };
+      onSort(newSortState);
     }
   };
 
